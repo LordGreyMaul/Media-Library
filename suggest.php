@@ -1,18 +1,46 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-$name = $_POST["name"];
-$email = $_POST["email"];
-$details = $_POST["details"];
+$name = trim(filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING ));
+$email = trim(filter_input(INPUT_POST,"email", FILTER_SANITIZE_EMAIL));
+$details = trim(filter_input( INPUT_POST,"details", FILTER_SANITIZE_SPECIAL_CHARS));
+
+    if ($name == "" || $email == "" || $details == ""){
+        echo "Please fill out the field: Name, Email and Details";
+        exit;
+    }
+    if ($_POST["address"] != "") {
+        echo "Bad form input";
+        exit;
+    }
+
+    require ("inc/phpmailer/class.phpmailer.php");
+
+    $mail = new PHPMailer;
+    if ($mail->ValidateAddress($email)) {
+        echo "Invalid Email Address";
+        exit;
+    }
 
 echo "<pre>";
 $email_body = "";
 $email_body .= "Name " . $name . "\n";
 $email_body .= "Email " . $email . "\n";
 $email_body .= "Details " . $details . "\n";
-echo $email_body;
-echo "</pre>";
 
-// To Do: Send Email
+    $mail->setFrom('$email', '$name');
+    $mail->addAddress('treehouse@localhost', 'Graham');     // Add a recipient
+    $mail->isHTML(false);                                  // Set email format to HTML
+
+    $mail->Subject = 'Personal Media Lib Suggest' . $name;
+    $mail->Body    = $email_body;
+
+
+    if(!$mail->send()) {
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+        exit;
+    }
+
 header("location:suggest.php?status=thanks");
 }
 
@@ -41,6 +69,12 @@ include("inc/header.php"); ?>
                 <tr>
                     <th><label for="details">Suggest Item Details</label></th>
                     <td><textarea name="details" id="details"></textarea>
+                </tr>
+                <tr style="display: none;">
+                    <th><label for="address">Address</label></th>
+                    <td><input type="text" name="address" id="address" />
+                    <p>Please leave this field blank</p>
+                    </td>
                 </tr>
             </table>
             <input type="submit" value="Send"  />
