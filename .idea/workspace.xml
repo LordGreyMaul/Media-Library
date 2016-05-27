@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa7bb40a-e410-4581-a179-d5d455deb45b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/inc/phpmailer/class.phpmailer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suggest.php" afterPath="$PROJECT_DIR$/suggest.php" />
     </list>
@@ -29,14 +28,13 @@
       <file leaf-file-name="suggest.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/suggest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="21" selection-end-column="5" />
+            <state relative-caret-position="408">
+              <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
               <folding>
-                <element signature="e#2467#2489#0#HTML" expanded="true" />
-                <marker date="1464097932189" expanded="true" signature="1892:1949" placeholder="..." />
-                <marker date="1464097932189" expanded="true" signature="1913:1949" placeholder="..." />
-                <marker date="1464097932189" expanded="true" signature="2089:2125" placeholder="..." />
-                <marker date="1464097932189" expanded="true" signature="2270:2306" placeholder="..." />
+                <element signature="e#10251#10273#0#HTML" expanded="true" />
+                <marker date="1464254671477" expanded="true" signature="2454:2511" placeholder="..." />
+                <marker date="1464254671477" expanded="true" signature="2475:2511" placeholder="..." />
+                <marker date="1464254671477" expanded="true" signature="2662:2698" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -91,10 +89,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1928" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-1927" />
+    <option name="y" value="2" />
+    <option name="width" value="1932" />
+    <option name="height" value="1045" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -254,19 +252,19 @@
       <option name="presentableId" value="Default" />
       <updated>1463814336690</updated>
       <workItem from="1463814338745" duration="11074000" />
-      <workItem from="1464014702186" duration="9588000" />
+      <workItem from="1464014702186" duration="13095000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20662000" />
+    <option name="totallyTimeSpent" value="24169000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-1927" y="2" width="1932" height="1045" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25052193" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -407,14 +405,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/suggest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="21" selection-end-column="5" />
+        <state relative-caret-position="408">
+          <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
           <folding>
-            <element signature="e#2467#2489#0#HTML" expanded="true" />
-            <marker date="1464097932189" expanded="true" signature="1892:1949" placeholder="..." />
-            <marker date="1464097932189" expanded="true" signature="1913:1949" placeholder="..." />
-            <marker date="1464097932189" expanded="true" signature="2089:2125" placeholder="..." />
-            <marker date="1464097932189" expanded="true" signature="2270:2306" placeholder="..." />
+            <element signature="e#10251#10273#0#HTML" expanded="true" />
+            <marker date="1464254671477" expanded="true" signature="2454:2511" placeholder="..." />
+            <marker date="1464254671477" expanded="true" signature="2475:2511" placeholder="..." />
+            <marker date="1464254671477" expanded="true" signature="2662:2698" placeholder="..." />
           </folding>
         </state>
       </provider>
