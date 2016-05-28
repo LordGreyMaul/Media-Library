@@ -13,7 +13,7 @@ $details = trim(filter_input( INPUT_POST,"details", FILTER_SANITIZE_SPECIAL_CHAR
         $error_message = "Please fill out the field: Name, Email, Category and Title";
 
     }
-    if ($_POST["address"] != "") {
+    if (isset($error_message) && $_POST["address"] != "") {
         $error_message = "Bad form input";
         exit;
     }
@@ -22,7 +22,7 @@ $details = trim(filter_input( INPUT_POST,"details", FILTER_SANITIZE_SPECIAL_CHAR
 
     $mail = new PHPMailer;
 
-    if (!$mail->validateAddress($email)) {
+    if (isset($error_message) && !$mail->validateAddress($email)) {
         $error_message = "Invalid email address";
     }
 if (!isset($error_message)){
@@ -39,8 +39,8 @@ if (!isset($error_message)){
     $email_body .= "Details " . $details . "\n";
 
         $mail->setFrom('$email', '$name');
-        $mail->addAddress('graham@morby-raybould.com', 'Graham');     // Add a recipient
-        $mail->isHTML(false);                                  // Set email format to HTML
+        $mail->addAddress('graham@morby-raybould.com', 'Graham'); // Add a recipient
+        $mail->isHTML(false); // Set email format to HTML
 
         $mail->Subject = 'Personal Media Lib Suggest' . $name;
         $mail->Body    = $email_body;
