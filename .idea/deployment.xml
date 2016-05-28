@@ -1,21 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="Treehouse">
-    <serverData>
-      <paths name="Superbound">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="Treehouse">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="Treehouse.com" />
-          </mappings>
-        </serverdata>
-      </paths>
-    </serverData>
-  </component>
+  <component name="PublishConfigData" serverName="medialib" />
 </project>

@@ -10,11 +10,11 @@ $year = trim(filter_input(INPUT_POST, "year", FILTER_SANITIZE_STRING ));
 $details = trim(filter_input( INPUT_POST,"details", FILTER_SANITIZE_SPECIAL_CHARS));
 
     if ($name == "" || $email == "" || $category == "" || $title == ""){
-        echo "Please fill out the field: Name, Email, Category and Title";
-        exit;
+        $error_message = "Please fill out the field: Name, Email, Category and Title";
+
     }
     if ($_POST["address"] != "") {
-        echo "Bad form input";
+        $error_message = "Bad form input";
         exit;
     }
 
@@ -22,39 +22,43 @@ $details = trim(filter_input( INPUT_POST,"details", FILTER_SANITIZE_SPECIAL_CHAR
 
     $mail = new PHPMailer;
 
-
-echo "<pre>";
-$email_body = "";
-$email_body .= "Name " . $name . "\n";
-$email_body .= "Email " . $email . "\n";
-$email_body .= "Suggested item\n";
-$email_body .= "Category " . $category . "\n";
-$email_body .= "Title " . $title . "\n";
-$email_body .= "Format " . $format . "\n";
-$email_body .= "Genre " . $genre . "\n";
-$email_body .= "Year " . $year . "\n";
-$email_body .= "Details " . $details . "\n";
-
-    $mail->setFrom('$email', '$name');
-    $mail->addAddress('graham@morby-raybould.com', 'Graham');     // Add a recipient
-    $mail->isHTML(false);                                  // Set email format to HTML
-
-    $mail->Subject = 'Personal Media Lib Suggest' . $name;
-    $mail->Body    = $email_body;
-
-        if(!$mail->send()) {
-        echo 'Message could not be sent.';
-        echo 'Mailer Error: ' . $mail->ErrorInfo;
-        exit;
+    if (!$mail->validateAddress($email)) {
+        $error_message = "Invalid email address";
     }
+if (!isset($error_message)){
+    echo "<pre>";
+    $email_body = "";
+    $email_body .= "Name " . $name . "\n";
+    $email_body .= "Email " . $email . "\n";
+    $email_body .= "Suggested item\n";
+    $email_body .= "Category " . $category . "\n";
+    $email_body .= "Title " . $title . "\n";
+    $email_body .= "Format " . $format . "\n";
+    $email_body .= "Genre " . $genre . "\n";
+    $email_body .= "Year " . $year . "\n";
+    $email_body .= "Details " . $details . "\n";
 
-header("location:suggest.php?status=thanks");
+        $mail->setFrom('$email', '$name');
+        $mail->addAddress('graham@morby-raybould.com', 'Graham');     // Add a recipient
+        $mail->isHTML(false);                                  // Set email format to HTML
+
+        $mail->Subject = 'Personal Media Lib Suggest' . $name;
+        $mail->Body    = $email_body;
+
+            if(!$mail->send()) {
+                header("location:suggest.php?status=thanks");
+                exit;
+            }
+            $error_message = 'Message could not be sent.';
+            $error_message =  'Mailer Error: ' . $mail->ErrorInfo;
+       }
 }
 
 $pageTitle = "Suggest a Media Item";
 $section = "suggest";
 
-include("inc/header.php"); ?>
+include("inc/header.php");
+?>
 
 <div class="section page">
     <div class="wrapper">
@@ -62,7 +66,13 @@ include("inc/header.php"); ?>
         <?php if (isset($_GET["status"]) && $_GET["status"] == "thanks"){
             echo "<p>Thanks for the email! I&rsquo;ll check out your suggestion shortly!</p>";
         } else{ ?>
-        <p>If you think there is something I&rsquo;m missing, Let me know! Complete the form to send me an email</p>
+            <?php
+            if (isset($error_message)) {
+                echo "<p class='message'>" .  $error_message . "</p>";
+            }else {
+              echo "<p>If you think there is something I&rsquo;m missing, Let me know! Complete the form to send me an email</p>";
+            }
+            ?>
         <form method="post" action="suggest.php">
             <table>
                 <tr>
@@ -71,7 +81,7 @@ include("inc/header.php"); ?>
                 </tr>
                 <tr>
                     <th><label for="email">Email (Required)</label></th>
-                    <td><input type="email" name="email" id="email" /></td>
+                    <td><input type="text" name="email" id="email" /></td>
                 </tr>
                 <tr>
                     <th><label for="category">Category (Required)</label></th>
