@@ -1,4 +1,8 @@
 <?php
+
+include("connection.php");
+
+/*
 $catalog = [];
 //Books
 $catalog[101] = [
@@ -183,4 +187,4 @@ $catalog[304] = [
     "year" => 2008,
     "category" => "Music",
     "artist" => "Nat King Cole"
-];
+]; */

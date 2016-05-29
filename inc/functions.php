@@ -1,10 +1,18 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dolph
- * Date: 21/05/2016
- * Time: 08:06
- */
+function full_catalog_array() {
+    include ("connection.php");
+
+    try {
+        $results = $db->query("SELECT title, category, img FROM Media");
+    } catch (Exception $e){
+        echo "Unable to retrieve results";
+        exit;
+    };
+
+    $catalog = $results->fetchAll();
+    return $catalog;
+}
+
 function get_item_html($id,$item){
     $output = "<li><a href='#'><img src='"
         . $item["img"] . "' alt='"
